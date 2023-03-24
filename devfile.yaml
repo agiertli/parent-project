@@ -24,3 +24,12 @@ components:
   - name: m2
     volume:
       size: 1G
+commands:
+  - id: submodule-init
+    exec: 
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "git submodule init && git submodule update"
+events: 
+  postStart:
+    - submodule-init
